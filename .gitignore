@@ -1,0 +1,55 @@
+# macOS system files
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+
+# macOS metadata files in folders
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE / Editor files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Node / Build tools
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+package-lock.json
+yarn.lock
+.pnpm-store/
+
+# Static Site Generators
+# Hugo
+/public/
+
+# Jekyll
+_site/
+.sass-cache/
+.jekyll-cache/
+
+# Gatsby
+.cache/
+public/
+
+# Next.js (static export)
+.next/
+out/
+
+# Eleventy
+.cache/
+dist/
+
+# Misc
+*.log
+*.tmp
+*.bak
+*.swp
