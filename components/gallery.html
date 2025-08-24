@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>HVL Champions Club</title>
+	<link rel="icon" href="../img/favicon.jpg">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="../css/style.css">
+
+	<style>
+		.lightbox {
+			display: none;
+			position: fixed;
+			z-index: 10000;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: rgba(0, 0, 0, 0.85);
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+		}
+
+		.lightbox-img-container {
+			max-width: 90%;
+			max-height: 80%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.lightbox-img {
+			max-width: 100%;
+			max-height: 100%;
+			border-radius: 8px;
+			box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+		}
+
+		.lightbox .close {
+			position: absolute;
+			top: 20px;
+			right: 40px;
+			color: #fff;
+			font-size: 40px;
+			cursor: pointer;
+		}
+
+		.lightbox .nav-btn {
+			position: fixed;
+			top: 50%;
+			transform: translateY(-50%);
+			color: #fff;
+			font-size: 50px;
+			cursor: pointer;
+			user-select: none;
+			padding: 10px;
+			background: rgba(0, 0, 0, 0.3);
+			border-radius: 50%;
+			z-index: 10001;
+		}
+
+		.lightbox .prev-btn {
+			left: 20px;
+		}
+
+		.lightbox .next-btn {
+			right: 20px;
+		}
+	</style>
+
+</head>
+
+<body>
+	<section class="gallery-page">
+		<h1>Our Complete Photo Gallery</h1>
+		<div class="all-images-gallery">
+			<img src="../img/practice/practice1.JPEG" alt="student">
+			<img src="../img/practice/practice10.JPG" alt="student">
+			<img src="../img/practice/practice11.JPG" alt="student">
+			<img src="../img/practice/practice12.JPG" alt="student">
+			<img src="../img/practice/practice13.JPG" alt="student">
+			<img src="../img/practice/practice14.JPG" alt="student">
+			<img src="../img/practice/practice15.JPG" alt="student">
+			<img src="../img/practice/practice16.JPG" alt="student">
+			<img src="../img/practice/practice17.JPG" alt="student">
+			<img src="../img/practice/practice18.JPG" alt="student">
+			<img src="../img/practice/practice19.JPG" alt="student">
+			<img src="../img/practice/practice2.JPEG" alt="student">
+			<img src="../img/practice/practice3.JPEG" alt="student">
+			<img src="../img/practice/practice4.JPEG" alt="student">
+			<img src="../img/practice/practice5.JPEG" alt="student">
+			<img src="../img/practice/practice6.JPEG" alt="student">
+			<img src="../img/practice/practice7.JPG" alt="student">
+			<img src="../img/practice/practice8.jpg" alt="student">
+			<img src="../img/practice/practice9.JPG" alt="student">
+			<img src="../img/student-awards/junior-awards/junior-student1.JPG" alt="student">
+			<img src="../img/student-awards/junior-awards/junior-student2.JPG" alt="student">
+			<img src="../img/student-awards/junior-awards/junior-student3.JPG" alt="student">
+			<img src="../img/student-awards/junior-awards/junior-student4.JPG" alt="student">
+			<img src="../img/student-awards/junior-awards/junior-student5.JPG" alt="student">
+			<img src="../img/student-awards/senior-awards/senior-student1.JPG" alt="student">
+			<img src="../img/student-awards/senior-awards/senior-student2.JPG" alt="student">
+			<img src="../img/student-awards/senior-awards/senior-student3.JPG" alt="student">
+			<img src="../img/student-awards/senior-awards/senior-student4.JPG" alt="student">
+			<img src="../img/student-awards/senior-awards/senior-student5.jpeg" alt="student">
+			<img src="../img/student-groups/group1.JPG" alt="student">
+			<img src="../img/student-groups/group2.JPG" alt="student">
+			<img src="../img/student-groups/group3.JPEG" alt="student">
+			<img src="../img/student-groups/group4.JPEG" alt="student">
+			<img src="../img/student-groups/group5.JPEG" alt="student">
+			<img src="../img/student-groups/group6.jpg" alt="student">
+			<img src="../img/student-groups/group7.JPG" alt="student">
+			<img src="../img/student-groups/group8.jpg" alt="student">
+			<img src="../img/student-groups/group9.jpg" alt="student">
+			<img src="../img/trainers/roshan1.JPG" alt="student">
+			<img src="../img/trainers/roshan2.jpg" alt="student">
+			<img src="../img/trainers/trainers1.JPG" alt="student">
+			<img src="../img/trainers/trainers2.jpg" alt="student">
+			<img src="../img/trainers/trainers3.JPG" alt="student">
+		</div>
+	</section>
+
+	<!-- Lightbox -->
+	<div id="lightbox" class="lightbox">
+		<span class="close">&times;</span>
+		<span class="nav-btn prev-btn">&#10094;</span>
+		<div class="lightbox-img-container">
+			<img class="lightbox-img" src="" alt="student">
+		</div>
+		<span class="nav-btn next-btn">&#10095;</span>
+	</div>
+
+	<script>
+		const lightbox = document.getElementById('lightbox');
+		const lightboxImg = document.querySelector('.lightbox-img');
+		const closeBtn = document.querySelector('.lightbox .close');
+		const prevBtn = document.querySelector('.lightbox .prev-btn');
+		const nextBtn = document.querySelector('.lightbox .next-btn');
+
+		const galleryImages = Array.from(document.querySelectorAll('.all-images-gallery img'));
+		let currentIndex = 0;
+
+		function openLightbox(index) {
+			currentIndex = index;
+			lightbox.style.display = 'flex';
+			lightboxImg.src = galleryImages[currentIndex].src;
+		}
+
+		function closeLightbox() {
+			lightbox.style.display = 'none';
+		}
+
+		function showPrev() {
+			currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+			openLightbox(currentIndex);
+		}
+
+		function showNext() {
+			currentIndex = (currentIndex + 1) % galleryImages.length;
+			openLightbox(currentIndex);
+		}
+
+		galleryImages.forEach((img, index) => {
+			img.addEventListener('click', () => openLightbox(index));
+		});
+
+		closeBtn.addEventListener('click', closeLightbox);
+		lightbox.addEventListener('click', e => {
+			if (e.target === lightbox) closeLightbox();
+		});
+		prevBtn.addEventListener('click', e => {
+			e.stopPropagation();
+			showPrev();
+		});
+		nextBtn.addEventListener('click', e => {
+			e.stopPropagation();
+			showNext();
+		});
+	</script>
+</body>
+
+</html>

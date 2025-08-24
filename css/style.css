@@ -195,6 +195,52 @@ section h2.underline::after {
 	transform: scale(1.05);
 }
 
+.awards-gallery {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+	gap: 15px;
+	justify-items: center;
+	margin: 20px 0;
+}
+
+.awards-gallery img {
+	width: 100%;
+	max-width: 200px;
+	height: 200px;
+	object-fit: cover;
+	border-radius: 10px;
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+	cursor: pointer;
+}
+
+.awards-gallery img:hover {
+	transform: scale(1.08);
+	box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.trainers {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+	gap: 15px;
+	justify-items: center;
+	margin: 20px 0;
+}
+
+.trainers img {
+	width: 100%;
+	max-width: 200px;
+	height: 200px;
+	object-fit: cover;
+	border-radius: 10px;
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+	cursor: pointer;
+}
+
+.trainers img:hover {
+	transform: scale(1.08);
+	box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
 .program-cards,
 .trainer-cards,
 .testimonial-cards {
@@ -511,4 +557,28 @@ section h2.underline::after {
 body.modal-open {
 	overflow: hidden;
 	height: 100vh;
+}
+
+.logo {
+	width: 40px;
+	height: auto;
+	vertical-align: middle;
+	margin-right: 8px;
+}
+
+.all-images-gallery {
+	column-count: 4;
+	column-gap: 10px;
+	margin-top: 20px;
+}
+
+.all-images-gallery img {
+	width: 100%;
+	height: auto;
+	display: block;
+	margin-bottom: 10px;
+	border-radius: 8px;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+	cursor: pointer;
 }
