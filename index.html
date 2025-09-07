@@ -108,16 +108,7 @@
 	</section> -->
 
 	<!-- Awards Section -->
-	
-
-
-
-
-
-
-
-
-<section id="students-awards" class="students-awards fade-in">
+	<section id="students-awards" class="students-awards fade-in">
 		<div class="container">
 			<h2 class="underline">Our Student Achievers</h2>
 			<h3>Junior Awards</h3>
@@ -141,22 +132,13 @@
 		</div>
 	</section>
 
-
-
-
-
-
-
-
-
-
 	<!-- Trainers Section -->
 	<section id="trainers" class="trainers fade-in">
 		<div class="container">
 			<h2 class="underline">Meet Our Trainers</h2>
 			<div class="trainer-cards">
 				<div class="card hover-up">
-					<img src="img/trainers/roshan.jpg" alt="Trainer">
+					<img src="img/trainers/roshan1.JPG" alt="Trainer">
 					<h3>Roshan Kumar</h3>
 					<p></p>
 				</div>
@@ -330,61 +312,43 @@
 	<!-- Include Just-validate -->
 	<script src="https://cdn.jsdelivr.net/npm/just-validate@2.3.2/dist/just-validate.production.min.js"></script>
 
-	<script>
-		const interestValidation = new JustValidate('#interestModal .contact-form');
+	<!-- Lightbox -->
+	<div id="lightbox" class="lightbox">
+		<span class="close">&times;</span>
+		<span class="nav-btn prev-btn">&#10094;</span>
+		<div class="lightbox-img-container">
+			<img class="lightbox-img" id="lightbox-img" src="">
+		</div>
+		<span class="nav-btn next-btn">&#10095;</span>
+	</div>
 
-		interestValidation
-			.addField('#name', [
-				{ rule: 'required', errorMessage: 'Full Name is required' }
-			])
-			.addField('#email', [
-				{
-					rule: 'email',
-					errorMessage: 'Please enter a valid email address'
-				}
-			])
-			.addField('#phone', [
-				{ rule: 'required', errorMessage: 'Phone number is required' },
-				{
-					rule: 'customRegexp',
-					value: /^[6-9]\d{9}$/,
-					errorMessage: 'Enter a valid 10-digit Indian mobile number starting with 6, 7, 8, or 9'
-				}
-			])
-			.addField('#class', [
-				{ rule: 'required', errorMessage: 'Please select a class' }
-			])
-			.addField('#time', [
-				{ rule: 'required', errorMessage: 'Please select a preferred time slot' }
-			])
-			.onSuccess((event) => {
-				event.target.submit();
-			});
+	<!-- Interest Modal -->
+	<div id="interestModal" class="modal">
+		<div class="modal-content">
+			<span class="close">&times;</span>
+			<h2>Register Your Interest</h2>
+			<form id="interestForm">
+				<input type="text" id="interestName" placeholder="Your Name" required>
+				<div id="interestNameError" class="error"></div>
+				<input type="email" id="interestEmail" placeholder="Your Email" required>
+				<div id="interestEmailError" class="error"></div>
+				<button type="submit">Submit</button>
+			</form>
+		</div>
+	</div>
 
-		const callbackValidation = new JustValidate('#callbackModal .contact-form');
-
-		callbackValidation
-			.addField('#cb_name', [
-				{ rule: 'required', errorMessage: 'Full Name is required' }
-			])
-			.addField('#cb_phone', [
-				{ rule: 'required', errorMessage: 'Phone number is required' },
-				{
-					rule: 'customRegexp',
-					value: /^[6-9]\d{9}$/,
-					errorMessage: 'Enter a valid 10-digit Indian mobile number starting with 6, 7, 8, or 9'
-				}
-			])
-			.addField('#cb_time', [
-				{ rule: 'required', errorMessage: 'Please select a preferred time' }
-			])
-			.addField('#cb_message', [
-				{ rule: 'required', errorMessage: 'Please enter some notes or questions' }
-			])
-			.onSuccess((event) => {
-				event.target.submit();
-			});
-	</script>
+	<!-- Callback Modal -->
+	<div id="callbackModal" class="modal">
+		<div class="modal-content">
+			<span class="close">&times;</span>
+			<h2>Request a Callback</h2>
+			<form id="callbackForm">
+				<input type="text" id="callbackPhone" placeholder="Your Phone Number" required>
+				<div id="callbackPhoneError" class="error"></div>
+				<button type="submit">Request</button>
+			</form>
+		</div>
+	</div>
 </body>
 
 </html>
