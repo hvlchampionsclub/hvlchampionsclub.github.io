@@ -179,6 +179,9 @@
 					<h4>~ Muskan B, Student</h4>
 				</div>
 			</div>
+			<a href="https://www.google.com/maps/place/HVL+CHAMPIONS+CLUB(R)+%7CKarate%7CGymnastics%7CBoxing%7Ckick+boxing/@12.9241661,77.6152644,17z/data=!4m8!3m7!1s0x3bae15f427a49951:0x5e1e491e14dc7241!8m2!3d12.9241609!4d77.6178447!9m1!1b1!16s%2Fg%2F11j8t07857?entry=ttu&g_ep=EgoyMDI1MDkwMy4wIKXMDSoASAFQAw%3D%3D"
+				target="_blank" class="button pulse">View
+				All Reviews</a>
 		</div>
 	</section>
 
@@ -321,34 +324,21 @@
 		</div>
 		<span class="nav-btn next-btn">&#10095;</span>
 	</div>
-
-	<!-- Interest Modal -->
-	<div id="interestModal" class="modal">
-		<div class="modal-content">
-			<span class="close">&times;</span>
-			<h2>Register Your Interest</h2>
-			<form id="interestForm">
-				<input type="text" id="interestName" placeholder="Your Name" required>
-				<div id="interestNameError" class="error"></div>
-				<input type="email" id="interestEmail" placeholder="Your Email" required>
-				<div id="interestEmailError" class="error"></div>
-				<button type="submit">Submit</button>
-			</form>
-		</div>
-	</div>
-
-	<!-- Callback Modal -->
-	<div id="callbackModal" class="modal">
-		<div class="modal-content">
-			<span class="close">&times;</span>
-			<h2>Request a Callback</h2>
-			<form id="callbackForm">
-				<input type="text" id="callbackPhone" placeholder="Your Phone Number" required>
-				<div id="callbackPhoneError" class="error"></div>
-				<button type="submit">Request</button>
-			</form>
-		</div>
-	</div>
 </body>
+<script>
+	const logo = document.querySelector('.navbar .logo');
+
+	function updateLogo() {
+		if (window.scrollY > 50) {
+			logo.classList.add('shrink');
+		} else {
+			logo.classList.remove('shrink');
+		}
+	}
+
+	window.addEventListener('scroll', updateLogo);
+	window.addEventListener('load', updateLogo);
+</script>
+
 
 </html>
