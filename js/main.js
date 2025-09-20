@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		if (!anyOpen && !userInteracted && interestModal) {
 			openModal(interestModal);
 		}
-	}, 10000);
+	}, 120000);
 
 	window.addEventListener("keydown", (e) => {
 		if (e.key === "Escape") closeAllModals();
@@ -195,3 +195,47 @@ function nextSlide() {
 
 showSlide(currentSlide);
 setInterval(nextSlide, slideInterval);
+
+
+// Junior Awards Slider
+const juniorSlides = document.querySelectorAll('.junior-award-slide');
+let juniorIndex = 0;
+const awardInterval = 5000; // 5 seconds
+
+function showJuniorSlide(index) {
+	juniorSlides.forEach((slide, i) => {
+		slide.classList.remove('active');
+		if (i === index) slide.classList.add('active');
+	});
+}
+
+function nextJuniorSlide() {
+	juniorIndex = (juniorIndex + 1) % juniorSlides.length;
+	showJuniorSlide(juniorIndex);
+}
+
+if (juniorSlides.length > 0) {
+	showJuniorSlide(juniorIndex);
+	setInterval(nextJuniorSlide, awardInterval);
+}
+
+// Senior Awards Slider
+const seniorSlides = document.querySelectorAll('.senior-award-slide');
+let seniorIndex = 0;
+
+function showSeniorSlide(index) {
+	seniorSlides.forEach((slide, i) => {
+		slide.classList.remove('active');
+		if (i === index) slide.classList.add('active');
+	});
+}
+
+function nextSeniorSlide() {
+	seniorIndex = (seniorIndex + 1) % seniorSlides.length;
+	showSeniorSlide(seniorIndex);
+}
+
+if (seniorSlides.length > 0) {
+	showSeniorSlide(seniorIndex);
+	setInterval(nextSeniorSlide, awardInterval);
+}
