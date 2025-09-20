@@ -173,3 +173,25 @@ document.addEventListener('DOMContentLoaded', () => {
 		});
 	}
 });
+
+// Slider for home
+const slides = document.querySelectorAll('.bg-slide');
+let currentSlide = 0;
+const slideInterval = 7000;
+
+function showSlide(index) {
+	slides.forEach((slide, i) => {
+		slide.classList.remove('active');
+		if (i === index) {
+			slide.classList.add('active');
+		}
+	});
+}
+
+function nextSlide() {
+	currentSlide = (currentSlide + 1) % slides.length;
+	showSlide(currentSlide);
+}
+
+showSlide(currentSlide);
+setInterval(nextSlide, slideInterval);
